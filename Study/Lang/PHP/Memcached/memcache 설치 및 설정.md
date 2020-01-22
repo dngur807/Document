@@ -91,8 +91,35 @@ systemctl restart nginx
   memcached의 상태를 볼 수 있다. php 로 작성되어 있다. phpmemcacheadmin
 
   ```
-  
+  https://github.com/clickalicious/phpmemadmin
+  설치 후 
+conposer update
+  phpmemadmin/app 에 .config.dist 있는데
+  .config로 수정
   ```
-
   
+  
+
+실행시 주의사항
+
+```
+http://localhost(nginx 서버네임)/phpmemadmin/web/index.php?action=1&host=127.0.0.1:11211 
+
+vi /etc/nginx/conf.d/default.conf  servername으로 설정되있음...
+
+```
+
+![image-20200121000209832](../../\image\image-20200121000209832.png)
+
+ 
+
+![image-20200121000232203](../../\image\image-20200121000232203.png)
+
+
+
+
+
+
+
+
 
