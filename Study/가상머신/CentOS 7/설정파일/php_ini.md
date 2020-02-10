@@ -22,3 +22,4 @@ session.save_path = "127.0.0.1:11211"
 
   
 
+* display_errors = On ; //에러 로그 보이게하기
