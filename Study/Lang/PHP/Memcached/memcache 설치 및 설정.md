@@ -32,6 +32,8 @@ php
 yum --enablerepo=remi-php72 php-pecl-memcache php-pecl-redis
 yum -y --enablerepo=remi install redis
 yum -y install memcached
+
+systemctl restart memcached
 ```
 
 
@@ -93,9 +95,13 @@ systemctl restart nginx
   ```
   https://github.com/clickalicious/phpmemadmin
   설치 후 
-conposer update
+composer update
   phpmemadmin/app 에 .config.dist 있는데
   .config로 수정
+  
+  cp .config.dist .config
+  
+  
   ```
   
   
