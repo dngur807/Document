@@ -13,14 +13,18 @@ echo '=================================================='
 echo '===============update autoconf==============='
 echo '=================================================='
 
-cd ~
+cd ~/downloads
 sudo rpm -e --nodeps `rpm -qf /usr/bin/autoconf`
 wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
 tar xzf autoconf-2.69.tar.gz 
 cd autoconf-2.69/
-./configure
+./configure --prefix=/usr
 make
 sudo make install
+
+
+
+
 
 echo '=================================================='
 echo '===============install boost==============='
