@@ -144,8 +144,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/local/lib
 ./configure CPPFLAGS="-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H -DBOOST_FILESYSTEM_VERSION=2" LIBS="-lboost_system -lboost_filesystem"
 make
 make install
-cp scribed /usr/bin/
 cd /tmp/scribe/src
+cp scribed /usr/bin/
 scribed --help
 
 echo '=================================================='
