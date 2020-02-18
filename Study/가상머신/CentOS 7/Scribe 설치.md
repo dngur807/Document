@@ -13,14 +13,18 @@ echo '=================================================='
 echo '===============update autoconf==============='
 echo '=================================================='
 
-cd ~
+cd ~/downloads
 sudo rpm -e --nodeps `rpm -qf /usr/bin/autoconf`
 wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
 tar xzf autoconf-2.69.tar.gz 
 cd autoconf-2.69/
-./configure
+./configure --prefix=/usr
 make
 sudo make install
+
+
+
+
 
 echo '=================================================='
 echo '===============install boost==============='
@@ -140,8 +144,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/local/lib
 ./configure CPPFLAGS="-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H -DBOOST_FILESYSTEM_VERSION=2" LIBS="-lboost_system -lboost_filesystem"
 make
 make install
-cp scribed /usr/bin/
 cd /tmp/scribe/src
+cp scribed /usr/bin/
 scribed --help
 
 echo '=================================================='
