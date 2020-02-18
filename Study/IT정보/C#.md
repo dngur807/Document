@@ -62,3 +62,23 @@ https://jira.gamevilcom2us.com/wiki/pages/viewpage.action?pageId=175805552
 
 고성능 웹앱을 만들기 위해 WebAssembly를 사용하는데 C#에서는 Blazor를 사용하여 WebAssembly를 만듭니다.
 이 Blazor를 사용하면 HEML5나 CSS 등을 몰라도 복잡하지 않은 웹앱은 C# 코드로 구현할 수 있습니다.
+
+
+
+
+
+
+
+Rider 추천 플러그인 
+
+Awesome Plugins for Rider: UI/UX
+https://blog.jetbrains.com/dotnet/2019/06/04/awesome-plugins-rider-uiux/
+
+Awesome Plugins for Rider: Code Editing/Analysis
+https://blog.jetbrains.com/dotnet/2019/05/31/awesome-plugins-rider-code-editinganalysis/
+
+Awesome Plugins for Rider: Language Support
+https://blog.jetbrains.com/dotnet/2019/05/29/awesome-plugins-rider-language-support/
+
+Fun and entertaining plugins for Rider
+https://blog.jetbrains.com/dotnet/2019/07/19/fun-entertaining-plugins-rider/

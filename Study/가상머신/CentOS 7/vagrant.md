@@ -1,10 +1,10 @@
 ### 설치
 
-mkdir -p /vagrant/game/public_html
-mkdir -p /vagrant/game/log
-mkdir -p /vagrant/game/log/nginx
-mkdir -p /vagrant/game/log/php-fpm
-mkdir -p /vagrant/game/log/scribed
+mkdir -p /vagrant/server/public_html
+mkdir -p /vagrant/server/log
+mkdir -p /vagrant/server/log/nginx
+mkdir -p /vagrant/server/log/php-fpm
+mkdir -p /vagrant/server/log/scribed
 mkdir  ~/downloads
 
 chmod -R 755 /vagrant
@@ -85,7 +85,7 @@ yum -y install memcached
 
 
 rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
-yum install mysql-community-server
+yum -y install mysql-community-server
 
 
 
