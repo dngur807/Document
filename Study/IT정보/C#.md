@@ -82,3 +82,19 @@ https://blog.jetbrains.com/dotnet/2019/05/29/awesome-plugins-rider-language-supp
 
 Fun and entertaining plugins for Rider
 https://blog.jetbrains.com/dotnet/2019/07/19/fun-entertaining-plugins-rider/
+
+
+
+ASP.NET Core에 NLog 사용하기
+
+https://docs.google.com/document/d/1Ea8qqRjLdI5aYVSV_Lxu4YhbDAPQ5Rc0jAoqY8ipsTM/edit
+
+
+
+
+
+닷넷 코어 3.0 이상부터 사용할 수 있습니다.
+
+.NET Core의 Diagnostics CLI Tool을 사용하기
+https://docs.google.com/document/d/1IGs5K1IbcuWc7ty-6RQQRc6CQ01SK_PFgSSM6MAcl3Q/edit?usp=sharing
+

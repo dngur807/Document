@@ -55,6 +55,85 @@ using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
 var result = streamReader.ReadToEnd();
 } 
 }
+```
+
+
+
+
+
+실습
+
+웹은 2초 정도 딜레이가 걸린다고 했을 때
+
+ System.Net.ServicePointManager.DefaultConnectionLimit 수에 따라 처리되는 것을 확인 할 수있다.
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config 의 위치
+
+```csharp
+List<Task> listTask = new List<Task>();
+System.Net.ServicePointManager.DefaultConnectionLimit = 4;
+Console.WriteLine(System.Net.ServicePointManager.DefaultConnectionLimit);
+for (int i = 0; i < num; ++i)
+{
+
+    listTask.Add(new Task(() =>
+                          {
+                              jreq.SetField("server_name", i.ToString());
+                              var res = Util.HttpRequest("url", jreq.ToString());
+                              server_name++;
+                              Console.WriteLine(res.response);
+                          }));    
+}
+
+for (int i = 0; i < num; ++i)
+{
+    listTask[i].Start();
+}
+var res2 = Util.HttpRequest("url", jreq.ToString());
+Console.WriteLine(res2.IsSuccess);
+
+for (int i = 0; i < num; ++i)
+{
+    listTask[i].Wait();
+}
 
 ```
+
+
+
+
+
+> 출처 http://www.devpia.com/Maeul/Contents/Detail.aspx?BoardID=17&MAEULNo=8&no=178248&ref=178248 댓글
+
+http 컨낵션을 닫지 않아서 생기는 문제
+
+원인은 2가지
+
+http는 1개 서버당 2개 컨넥션만 허용하는게 기본 설정이다.  그걸 관리하기 위해서는 컨넥션 풀이 내부적으로 있습니다. 즉 재사용 됩니다. 소켓 연결을 끊지 않고 다음 요청 (Request) 하고 받고 (Response) 합니다.
+
+이걸 ServicePoint 라고 합니다.
+
+이전 http 연결을 닫지 않으면 사용중으로 마크 되어 컨넥션을 받을 때 까지 대기 하게 됩니다.
+
+
+
+만약 단순한 html 페이지가 아니라 다수의 동시 호출이 이루어지는 경우 컨넥션 수를 늘려야할 필요가 있습니다.
+
+System.Net.ServicePointManager.DefaultConnectionLimit = 10;
+
+이 명령으로 커낵션 수를 10개까지 쓰도록 늘릴수 있습니다.
+
+
+
+무한히 늘린다고 좋은게 아니고, 시스템간 소켓 통신 연결은 두개만 있어도 충분한것 입니다. 서버의 동시 처리 역량에 맞춰주어야 합니다. (예 CPU 코어수만큼)
+
+
+
+두번 째 원인은 세션락입니다.
+
+웹서버 수준에서 같은 세션으로 들어오는 요청에 대해 잠금을 수행합니다.
+
+Authorization 이 같다면 같은 사용자로 보고, 해당 사용자 리소스 즉 세션을 잠금 합니다. 더 이상의 요청을 모두 보류 시켜 데드락 처럼 보이게 됩니다. 또한 서버 수준에서도 세션당 연결 수 를 제한할 수 있습니다.
+
+
 
