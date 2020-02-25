@@ -98,3 +98,53 @@ https://docs.google.com/document/d/1Ea8qqRjLdI5aYVSV_Lxu4YhbDAPQ5Rc0jAoqY8ipsTM/
 .NET Core의 Diagnostics CLI Tool을 사용하기
 https://docs.google.com/document/d/1IGs5K1IbcuWc7ty-6RQQRc6CQ01SK_PFgSSM6MAcl3Q/edit?usp=sharing
 
+
+
+
+
+NLog - Fluentd 노드로 로그를 보내는 방법
+https://jacking75.github.io/csharp_nlog_fluentd/
+
+NLog와 연결될 Fluentd는 Input을 tcp로 합니다.
+
+
+
+for, foreach 속도 비교
+https://docs.google.com/document/d/1auWKA-NySQrm0VIV9lpDgR9et1HyOHzEpvSH6fogj0E/edit?usp=sharing
+
+
+
+https://github.com/jacking75/RandomStringGenerator4DotNet
+랜덤 문자열 생성 라이브러리입니다.
+
+임시 비밀번호 같은걸 만들 때 사용하면 유용합니다.
+
+사용 법
+var generator = new RandomStringGenerator.StringGenerator();
+generator.MinLowerCaseChars = 2;
+generator.MinUpperCaseChars = 1;
+generator.MinNumericChars = 3;
+generator.MinSpecialChars = 2;
+generator.FillRest = RandomStringGenerator.CharType.LowerCase;
+
+var token = generator.GenerateString(10);
+
+
+
+
+
+
+
+C#으로 백그라운드로 특정 시간, 특정 기간마다 일을 처리하고 싶을 때 사용하면 좋은 라이브러리입니다.
+리눅스의 cron 같은 것을 생각하면 이해하기 쉬울 것 같습니다.
+
+원래 소스(https://github.com/fluentscheduler/FluentScheduler)를 닷넷코어 프로젝트로 변경했습니다
+https://github.com/jacking75/FluentScheduler
+
+
+
+
+
+.NET 고속화 Tips
+https://docs.google.com/document/d/1wzlU2D1sDkEYKgtyKmlXByyEpHhJ0rvVpHwgjNMJdW8/edit?usp=sharing
+
